@@ -39,6 +39,7 @@ const seedQuery = `
     );
 `;
 const populateDB = async () => {
+  
   const client = await pool.connect();
 
   try {
