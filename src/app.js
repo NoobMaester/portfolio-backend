@@ -1,18 +1,17 @@
 import express from "express";
+import blogRouter from "./routers/blogRouter.js";
 
 import healthRouter from "./routers/healthRouter.js";
 import notFound from "./middleware/notFound.js";
 import errorHandler from "./middleware/errorHandler.js";
 
-import postRoutes from "./routers/postRoutes.js"
-
 const app = express();
 
-//built-in middleware to parse req.bodies
+//built-in middleware to parse request bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/posts", postRoutes)
+app.use("/api/blogs", blogRouter)
 
 app.get("/", (req, res) => {
 res.status(200).json({ message: "Portfolio API is running" });
